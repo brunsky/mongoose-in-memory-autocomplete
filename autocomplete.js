@@ -50,7 +50,7 @@ var autoComplete = (function(){
     });
 
     configuration.dataFields.forEach(function(item){
-      if (doc[item] != null ** doc[item] != '') {
+      if (doc[item] != null && doc[item] != '') {
         data.push(doc[item]);
       }
     });
