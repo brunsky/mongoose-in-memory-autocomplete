@@ -35,27 +35,20 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
-      console.log('autoCompleteFields');
-      console.log(doc[item]);
-      if (doc[item] != null && doc[item] != '') {
-        if(word === ""){
-          lowerCased = doc[item].toLowerCase();
-          word = doc[item];
-        }
-        else{
-          lowerCased += " " + doc[item].toLowerCase();
-          word += " " + doc[item];
-        }
+
+      if(word === ""){
+        lowerCased = doc[item].toLowerCase();
+        word = doc[item];
+      }
+      else{
+        lowerCased += " " + doc[item].toLowerCase();
+        word += " " + doc[item];
       }
 
     });
 
     configuration.dataFields.forEach(function(item){
-      console.log('dataFields');
-      console.log(doc[item]);
-      if (doc[item] != null && doc[item] != '') {
-        data.push(doc[item]);
-      }
+      data.push(doc[item]);
     });
 
     var itemToCache = {"word": lowerCased, "data": data};
