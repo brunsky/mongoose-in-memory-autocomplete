@@ -35,7 +35,7 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
-      
+
       if (doc[item] != null) {
         if(word === ""){
           lowerCased = doc[item].toLowerCase();
@@ -50,7 +50,9 @@ var autoComplete = (function(){
     });
 
     configuration.dataFields.forEach(function(item){
-      data.push(doc[item]);
+      if (doc[item] != null) {
+        data.push(doc[item]);
+      }
     });
 
     var itemToCache = {"word": lowerCased, "data": data};
