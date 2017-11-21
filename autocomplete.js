@@ -35,7 +35,8 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
-      try {
+      
+      if (doc[item] != null) {
         if(word === ""){
           lowerCased = doc[item].toLowerCase();
           word = doc[item];
@@ -44,9 +45,8 @@ var autoComplete = (function(){
           lowerCased += " " + doc[item].toLowerCase();
           word += " " + doc[item];
         }
-      }catch(e) {
-        console.log("autocomplete detect undefined value!", e);
       }
+
     });
 
     configuration.dataFields.forEach(function(item){
